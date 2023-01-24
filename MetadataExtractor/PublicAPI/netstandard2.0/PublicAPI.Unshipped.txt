@@ -5,6 +5,7 @@ abstract MetadataExtractor.Formats.Jpeg.JpegSegmentWithPreambleMetadataReader.Se
 abstract MetadataExtractor.Formats.Tiff.DirectoryTiffHandler.CustomProcessTag(in MetadataExtractor.Formats.Tiff.TiffReaderContext context, int tagId, int valueOffset, int byteCount) -> bool
 abstract MetadataExtractor.Formats.Tiff.DirectoryTiffHandler.ProcessTiffMarker(ushort marker) -> MetadataExtractor.Formats.Tiff.TiffStandard
 abstract MetadataExtractor.Formats.Tiff.DirectoryTiffHandler.TryCustomProcessFormat(int tagId, MetadataExtractor.Formats.Tiff.TiffDataFormatCode formatCode, ulong componentCount, out ulong byteCount) -> bool
+abstract MetadataExtractor.IO.IndexedReader.GetByteInternal(int index) -> byte
 const MetadataExtractor.Formats.Exif.ExifDirectoryBase.TagExtraSamples = 338 -> int
 const MetadataExtractor.Formats.Exif.ExifDirectoryBase.TagGdalMetadata = 42112 -> int
 const MetadataExtractor.Formats.Exif.ExifDirectoryBase.TagGdalNoData = 42113 -> int
@@ -383,6 +384,7 @@ MetadataExtractor.Formats.Tiff.TiffStandard
 MetadataExtractor.Formats.Tiff.TiffStandard.BigTiff = 1 -> MetadataExtractor.Formats.Tiff.TiffStandard
 MetadataExtractor.Formats.Tiff.TiffStandard.Tiff = 0 -> MetadataExtractor.Formats.Tiff.TiffStandard
 MetadataExtractor.Formats.WebP.WebPRiffHandler.AddError(string! errorMessage) -> void
+MetadataExtractor.IO.IndexedReader.GetByte(int index) -> byte
 MetadataExtractor.IO.IndexedReader.GetUInt64(int index) -> ulong
 MetadataExtractor.Rational.Absolute.get -> MetadataExtractor.Rational
 MetadataExtractor.Rational.IsPositive.get -> bool
@@ -427,6 +429,8 @@ override MetadataExtractor.Formats.Photoshop.PhotoshopReader.SegmentTypes.get ->
 override MetadataExtractor.Formats.Photoshop.PhotoshopTiffHandler.CustomProcessTag(in MetadataExtractor.Formats.Tiff.TiffReaderContext context, int tagId, int valueOffset, int byteCount) -> bool
 override MetadataExtractor.Formats.QuickTime.QuickTimeMetadataHeaderDescriptor.GetDescription(int tagType) -> string?
 override MetadataExtractor.Formats.QuickTime.QuickTimeTiffHandler<T>.ProcessTiffMarker(ushort marker) -> MetadataExtractor.Formats.Tiff.TiffStandard
+override MetadataExtractor.IO.ByteArrayReader.GetByteInternal(int index) -> byte
+override MetadataExtractor.IO.IndexedSeekingReader.GetByteInternal(int index) -> byte
 static MetadataExtractor.DirectoryExtensions.GetUInt64(this MetadataExtractor.Directory! directory, int tagType) -> ulong
 static MetadataExtractor.DirectoryExtensions.TryGetUInt64(this MetadataExtractor.Directory! directory, int tagType, out ulong value) -> bool
 static MetadataExtractor.Formats.Exif.ExifReader.JpegSegmentPreambleLength.get -> int
